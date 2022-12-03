@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022
+﻿namespace AdventOfCode2022
 {
     internal class DayTwo
     {
         public static int[] Run()
         {
-            string[] lines = Utilities.GetLinesFromFile("d2.txt");
+            string[] lines = Utilities.GetLinesFromResource("d2");
 
             Dictionary<string, int> inputMap1 = new Dictionary<string, int>();
             inputMap1["A X"] = 4; // Rock Rock         Draw

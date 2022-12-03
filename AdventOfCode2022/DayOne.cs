@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2022
+﻿namespace AdventOfCode2022
 {
     internal class DayOne
     {
@@ -14,7 +8,7 @@ namespace AdventOfCode2022
             var max = 0;
             List<int> totals = new List<int>();
 
-            string[] lines = Utilities.GetLinesFromFile("d1.txt");
+            string[] lines = Utilities.GetLinesFromResource("d1");
 
             foreach (var line in lines)
             {
