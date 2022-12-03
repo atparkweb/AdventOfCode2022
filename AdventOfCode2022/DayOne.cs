@@ -39,13 +39,12 @@ namespace AdventOfCode2022
                 }
             }
 
-            totals.Sort();
-            totals.Reverse();
-
             int[] result = new int[2];
             result[0] = max;
 
-            int topThreeSum = totals.GetRange(0, 3).Sum();
+            totals.Sort();
+            totals.Reverse();
+            int topThreeSum = totals.Take(3).Sum();
             result[1] = topThreeSum;
 
             return result;
