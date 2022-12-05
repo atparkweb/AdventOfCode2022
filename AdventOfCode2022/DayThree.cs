@@ -1,47 +1,57 @@
-﻿namespace AdventOfCode2022
+﻿using System.Security.Cryptography;
+
+namespace AdventOfCode2022
 {
     internal class DayThree
     {
         public static int[] Run()
         {
             var sum = 0;
+            var groupSum = 0;
 
             string[] lines = Utilities.GetLinesFromResource("d3");
 
-            foreach (string line in lines)
+            for (var i = 0; i < lines.Length; i++)
             {
                 Dictionary<char, int> contentsMap = new Dictionary<char, int>();
+                string line = lines[i];
 
-                int lineLength = line.Length;
-                int i = 0;
-
-                while (i < lineLength / 2)
+                for (var j = 0; j < line.Length; j++)
                 {
-                    if (contentsMap.ContainsKey(line[i]))
+                    if (j < line.Length / 2) // the first half of the line
                     {
-                        contentsMap[line[i]] += 1;
+                        if (contentsMap.ContainsKey(line[j]))
+                        {
+                            contentsMap[line[j]] += 1;
+                        }
+                        else
+                        {
+                            contentsMap[line[j]] = 1;
+                        }
                     }
-                    else
+                    else // the second half of the line
                     {
-                        contentsMap[line[i]] = 1;
+                        if (contentsMap.ContainsKey(line[j]))
+                        {
+                            sum += DayThree.getPriority(line[j]);
+                            break;
+                        }
                     }
-                    i++;
                 }
 
-                while (i < lineLength)
+                // for every group of three lines
+                if (i > 0 && (i + 1) % 3 == 0)
                 {
-                    if (contentsMap.ContainsKey(line[i]))
-                    {
-                        sum += DayThree.getPriority(line[i]);
-                        break;
+                    var chars = lines[i].Intersect(lines[i - 1]).Intersect(lines[i - 2]);
+                    foreach (var c in chars) {
+                        groupSum += DayThree.getPriority(c);
                     }
-                    i++;
-                }
+                } 
             }
 
             int[] result = new int[2];
             result[0] = sum;
-            result[1] = 0;
+            result[1] = groupSum;
             return result;
         }
 
