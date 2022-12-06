@@ -34,7 +34,7 @@ namespace AdventOfCode2022
                     int moveCount = int.Parse(match.Groups[1].Value);
                     int fromColumn = int.Parse(match.Groups[2].Value) - 1;
                     int toColumn = int.Parse(match.Groups[3].Value) - 1;
-                    this.move(moveCount, fromColumn, toColumn);
+                    this.moveAll(moveCount, fromColumn, toColumn);
                 }
                 else
                 {
@@ -66,6 +66,30 @@ namespace AdventOfCode2022
                 if (this.stacks[fromColumn].Count > 0)
                 {
                     this.stacks[toColumn].Push(this.stacks[fromColumn].Pop());
+                }
+                i++;
+            }
+        }
+        
+        private void moveAll(int count, int fromColumn, int toColumn)
+        {
+            Stack<char> tempStack = new Stack<char>();
+            var i = 0;
+
+            while (i < count)
+            {
+                if (this.stacks[fromColumn].Count > 0)
+                {
+                    tempStack.Push(this.stacks[fromColumn].Pop());
+                }
+                i++;
+            }
+            i = 0;
+            while (i < count)
+            {
+                if (tempStack.Count > 0)
+                {
+                    this.stacks[toColumn].Push(tempStack.Pop());
                 }
                 i++;
             }
