@@ -14,9 +14,10 @@ namespace AdventOfCode2022
                     throw new ArgumentNullException(nameof(file));
                 }
                 return contents.Split(System.Environment.NewLine);
-            } catch
+            }
+            catch (ArgumentNullException ex)
             {
-                Console.WriteLine("Invalid resource reference");
+                Console.WriteLine($"Invalid resource reference: {ex}");
                 return new string[0];
             }
         }

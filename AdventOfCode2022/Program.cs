@@ -8,3 +8,6 @@ solutionTwo.Run();
 
 var solutionThree = new DayThree();
 solutionThree.Run();
+
+var solutionFour = new DayFour();
+solutionFour.Run();
