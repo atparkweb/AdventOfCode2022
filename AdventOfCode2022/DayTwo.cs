@@ -1,11 +1,14 @@
 ﻿namespace AdventOfCode2022
 {
-    internal class DayTwo
+    internal class DayTwo : Solution
     {
-        public static int[] Run()
-        {
-            string[] lines = Utilities.GetLinesFromResource("d2");
+        int dayNumber = 2;
+        string[] lines = Utilities.GetLinesFromResource("d2");
+        int totalScore1 = 0;
+        int totalScore2 = 0;
 
+        static Dictionary<string, int> getInputMapA()
+        {
             Dictionary<string, int> inputMap1 = new Dictionary<string, int>();
             inputMap1["A X"] = 4; // Rock Rock         Draw
             inputMap1["A Y"] = 8; // Rock Paper        Win
@@ -17,6 +20,10 @@
             inputMap1["C Y"] = 2; // Scissors Paper    Loss
             inputMap1["C Z"] = 6; // Scissors Scissors Draw
 
+            return inputMap1;
+        }
+        static Dictionary<string, int> getInputMapB()
+        {
             Dictionary<string, int> inputMap2 = new Dictionary<string, int>();
             inputMap2["A X"] = 3; // Rock Scissors     Loss
             inputMap2["A Y"] = 4; // Rock Rock         Draw
@@ -28,19 +35,25 @@
             inputMap2["C Y"] = 6; // Scissors Scissors Draw
             inputMap2["C Z"] = 7; // Scissors Rock     Win
 
-            int totalScore1 = 0;
-            int totalScore2 = 0;
-            foreach (var line in lines)
+            return inputMap2;
+        }
+
+        override public void Run()
+        {
+            var inputMap1 = DayTwo.getInputMapA();
+            var inputMap2 = DayTwo.getInputMapB();
+
+            foreach (var line in this.lines)
             {
-                totalScore1 += inputMap1[line];
-                totalScore2 += inputMap2[line];
+                this.totalScore1 += inputMap1[line];
+                this.totalScore2 += inputMap2[line];
             }
 
             int[] result = new int[2];
-            result[0] = totalScore1;
-            result[1] = totalScore2;
+            result[0] = this.totalScore1;
+            result[1] = this.totalScore2;
 
-            return result;
+            base.Print(this.dayNumber, result);
         }
     }
 }

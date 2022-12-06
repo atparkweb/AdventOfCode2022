@@ -1,30 +1,31 @@
 ﻿namespace AdventOfCode2022
 {
-    internal class DayOne
+    internal class DayOne : Solution
     {
-        public static int[] Run()
+        int dayNumber = 1;
+        string[] lines = Utilities.GetLinesFromResource("d1");
+        int sum = 0;
+        int max = 0;
+
+        override public void Run()
         {
-            var sum = 0;
-            var max = 0;
             List<int> totals = new List<int>();
 
-            string[] lines = Utilities.GetLinesFromResource("d1");
-
-            foreach (var line in lines)
+            foreach (var line in this.lines)
             {
                 if (line == "")
                 {
-                    if (sum > max)
+                    if (this.sum > this.max)
                     {
-                        max = sum;
+                        this.max = this.sum;
                     }
 
-                    totals.Add(sum);
-                    sum = 0;
+                    totals.Add(this.sum);
+                    this.sum = 0;
                 } else {
                     if (int.TryParse(line, out int amount))
                     {
-                        sum += amount;
+                        this.sum += amount;
                     }
                     else
                     {
@@ -34,14 +35,14 @@
             }
 
             int[] result = new int[2];
-            result[0] = max;
+            result[0] = this.max;
 
             totals.Sort();
             totals.Reverse();
             int topThreeSum = totals.Take(3).Sum();
             result[1] = topThreeSum;
 
-            return result;
+            base.Print(this.dayNumber, result);
         }
     }
 }
