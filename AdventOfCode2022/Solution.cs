@@ -9,5 +9,11 @@
             Console.WriteLine($"Day {dayNumber}a: {result[0]}");
             Console.WriteLine($"Day {dayNumber}b: {result[1]}");
         }
+
+        protected void Print(int dayNumber, string[] result)
+        {
+            Console.WriteLine($"Day {dayNumber}a: {result[0]}");
+            Console.WriteLine($"Day {dayNumber}a: {result[1]}");
+        }
     }
 }

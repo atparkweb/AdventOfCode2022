@@ -11,3 +11,6 @@ solutionThree.Run();
 
 var solutionFour = new DayFour();
 solutionFour.Run();
+
+var solutionFive = new DayFive();
+solutionFive.Run();

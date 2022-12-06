@@ -345,5 +345,44 @@ namespace AdventOfCode2022.Properties {
                 return ResourceManager.GetString("d4", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     [C]             [L]         [T]
+        ///    [V] [R] [M]     [T]         [B]
+        ///    [F] [G] [H] [Q] [Q]         [H]
+        ///    [W] [L] [P] [V] [M] [V]     [F]
+        ///    [P] [C] [W] [S] [Z] [B] [S] [P]
+        ///[G] [R] [M] [B] [F] [J] [S] [Z] [D]
+        ///[J] [L] [P] [F] [C] [H] [F] [J] [C]
+        ///[Z] [Q] [F] [L] [G] [W] [H] [F] [M]
+        /// 1   2   3   4   5   6   7   8   9 
+        ///
+        ///move 1 from 5 to 6
+        ///move 5 from 6 to 7
+        ///move 10 from 7 to 3
+        ///move 4 from 8 to 4
+        ///move 2 from 5 to 4
+        ///move 4 from 3 to 6
+        ///move 6 from 2 to 4
+        ///move 8 from 6 to 9
+        ///move 5 from 9 to [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string d5 {
+            get {
+                return ResourceManager.GetString("d5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to move 1 from 2 to 1
+        ///move 3 from 1 to 3
+        ///move 2 from 2 to 1
+        ///move 1 from 1 to 2.
+        /// </summary>
+        internal static string test {
+            get {
+                return ResourceManager.GetString("test", resourceCulture);
+            }
+        }
     }
 }
