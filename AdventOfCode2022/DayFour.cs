@@ -6,7 +6,8 @@ namespace AdventOfCode2022
     {
         int dayNumber = 4;
         string[] lines = Utilities.GetLinesFromResource("d4");
-        int count = 0;
+        int result1 = 0;
+        int result2 = 0;
 
         override public void Run()
         {
@@ -18,13 +19,19 @@ namespace AdventOfCode2022
                     .ToArray();
                 if (this.hasFullOverlap(sections))
                 {
-                    count++;
+                    result1++;
+                    result2++;
+                }
+
+                if (!this.hasFullOverlap(sections) && this.hasOverlap(sections))
+                {
+                    result2++;
                 }
             }
 
             int[] result = new int[2];
-            result[0] = count;
-            result[1] = 0;
+            result[0] = result1;
+            result[1] = result2;
 
             base.Print(this.dayNumber, result);
         }
@@ -33,6 +40,12 @@ namespace AdventOfCode2022
         {
             return (sections[0] >= sections[2] && sections[1] <= sections[3])
                 || (sections[2] >= sections[0] && sections[3] <= sections[1]);
+        }
+
+        bool hasOverlap(int[] sections)
+        {
+            return (sections[1] >= sections[2] && sections[1] <= sections[3])
+                || (sections[3] >= sections[0] && sections[3] <= sections[1]);
         }
     }
 }
