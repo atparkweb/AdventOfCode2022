@@ -6,12 +6,14 @@ namespace AdventOfCode2022.Solutions
     internal class DayThree : Solution
     {
         int dayNumber = 3;
-        string[] lines = Utilities.GetLinesFromResource("d3");
+        string[]? lines = Utilities.GetLinesFromResource("d3");
         int sum = 0;
         int groupSum = 0;
 
         override public void Run()
         {
+            if (lines == null) return;
+
             for (var i = 0; i < lines.Length; i++)
             {
                 Dictionary<char, int> contentsMap = new Dictionary<char, int>();

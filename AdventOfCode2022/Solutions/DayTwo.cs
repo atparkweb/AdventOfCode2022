@@ -5,7 +5,7 @@ namespace AdventOfCode2022.Solutions
     internal class DayTwo : Solution
     {
         int dayNumber = 2;
-        string[] lines = Utilities.GetLinesFromResource("d2");
+        string[]? lines = Utilities.GetLinesFromResource("d2");
         int totalScore1 = 0;
         int totalScore2 = 0;
 
@@ -42,6 +42,8 @@ namespace AdventOfCode2022.Solutions
 
         override public void Run()
         {
+            if (lines == null) return;
+
             var inputMap1 = getInputMapA();
             var inputMap2 = getInputMapB();
 

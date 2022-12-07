@@ -4,13 +4,15 @@ namespace AdventOfCode2022.Solutions
 {
     internal class DaySix : Solution
     {
-        string[] lines = Utilities.GetLinesFromResource("d6");
+        string[]? lines = Utilities.GetLinesFromResource("d6");
         int result1 = 0;
         int result2 = 0;
         const int targetLength = 14;
 
         public override void Run()
         {
+            if (lines == null) return;
+
             char[] letters = lines[0].ToCharArray();
             int left = 0;
             int right = targetLength - 1;

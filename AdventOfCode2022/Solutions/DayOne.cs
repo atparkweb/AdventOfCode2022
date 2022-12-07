@@ -5,12 +5,14 @@ namespace AdventOfCode2022.Solutions
     internal class DayOne : Solution
     {
         int dayNumber = 1;
-        string[] lines = Utilities.GetLinesFromResource("d1");
+        string[]? lines = Utilities.GetLinesFromResource("d1");
         int sum = 0;
         int max = 0;
 
         override public void Run()
         {
+            if (lines == null) return;
+
             List<int> totals = new List<int>();
 
             foreach (var line in lines)

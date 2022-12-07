@@ -6,12 +6,14 @@ namespace AdventOfCode2022.Solutions
     internal class DayFour : Solution
     {
         int dayNumber = 4;
-        string[] lines = Utilities.GetLinesFromResource("d4");
+        string[]? lines = Utilities.GetLinesFromResource("d4");
         int result1 = 0;
         int result2 = 0;
 
         override public void Run()
         {
+            if (lines == null) return;
+
             foreach (string line in lines)
             {
                 int[] sections = line.Split('-', ',')

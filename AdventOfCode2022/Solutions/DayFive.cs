@@ -22,10 +22,12 @@ namespace AdventOfCode2022.Solutions
             new Stack<char>(new List<char> { 'M', 'C', 'D', 'P', 'F', 'H', 'B', 'T' })
         };
 
-        string[] lines = Utilities.GetLinesFromResource("d5");
+        string[]? lines = Utilities.GetLinesFromResource("d5");
 
         public override void Run()
         {
+            if (lines == null) return;
+
             for (var i = 10; i < lines.Length; i++)
             {
                 var line = lines[i];
