@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2022
+﻿using AdventOfCode2022.Library;
+
+namespace AdventOfCode2022.Solutions
 {
     internal class DayOne : Solution
     {
@@ -11,21 +13,23 @@
         {
             List<int> totals = new List<int>();
 
-            foreach (var line in this.lines)
+            foreach (var line in lines)
             {
                 if (line == "")
                 {
-                    if (this.sum > this.max)
+                    if (sum > max)
                     {
-                        this.max = this.sum;
+                        max = sum;
                     }
 
-                    totals.Add(this.sum);
-                    this.sum = 0;
-                } else {
+                    totals.Add(sum);
+                    sum = 0;
+                }
+                else
+                {
                     if (int.TryParse(line, out int amount))
                     {
-                        this.sum += amount;
+                        sum += amount;
                     }
                     else
                     {
@@ -35,14 +39,14 @@
             }
 
             int[] result = new int[2];
-            result[0] = this.max;
+            result[0] = max;
 
             totals.Sort();
             totals.Reverse();
             int topThreeSum = totals.Take(3).Sum();
             result[1] = topThreeSum;
 
-            base.Print(this.dayNumber, result);
+            Print(dayNumber, result);
         }
     }
 }

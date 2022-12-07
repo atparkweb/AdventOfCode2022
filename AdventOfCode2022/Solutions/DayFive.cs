@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
+using AdventOfCode2022.Library;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Solutions
 {
     internal class DayFive : Solution
     {
@@ -25,7 +26,7 @@ namespace AdventOfCode2022
 
         public override void Run()
         {
-            for (var i = 10; i < this.lines.Length; i++)
+            for (var i = 10; i < lines.Length; i++)
             {
                 var line = lines[i];
                 Match match = Regex.Match(line, instructionPattern);
@@ -34,16 +35,16 @@ namespace AdventOfCode2022
                     int moveCount = int.Parse(match.Groups[1].Value);
                     int fromColumn = int.Parse(match.Groups[2].Value) - 1;
                     int toColumn = int.Parse(match.Groups[3].Value) - 1;
-                    this.moveAll(moveCount, fromColumn, toColumn);
+                    moveAll(moveCount, fromColumn, toColumn);
                 }
                 else
                 {
                     Console.WriteLine("FAIL");
                 }
             }
-            List<char> tops= new List<char>();
+            List<char> tops = new List<char>();
 
-            foreach (Stack<char> stack in this.stacks)
+            foreach (Stack<char> stack in stacks)
             {
                 if (stack.Count > 0)
                 {
@@ -55,7 +56,7 @@ namespace AdventOfCode2022
             result[0] = result1;
             result[1] = result2;
 
-            base.Print(5, result);
+            Print(5, result);
         }
 
         private void move(int count, int fromColumn, int toColumn)
@@ -63,14 +64,14 @@ namespace AdventOfCode2022
             var i = 0;
             while (i < count)
             {
-                if (this.stacks[fromColumn].Count > 0)
+                if (stacks[fromColumn].Count > 0)
                 {
-                    this.stacks[toColumn].Push(this.stacks[fromColumn].Pop());
+                    stacks[toColumn].Push(stacks[fromColumn].Pop());
                 }
                 i++;
             }
         }
-        
+
         private void moveAll(int count, int fromColumn, int toColumn)
         {
             Stack<char> tempStack = new Stack<char>();
@@ -78,9 +79,9 @@ namespace AdventOfCode2022
 
             while (i < count)
             {
-                if (this.stacks[fromColumn].Count > 0)
+                if (stacks[fromColumn].Count > 0)
                 {
-                    tempStack.Push(this.stacks[fromColumn].Pop());
+                    tempStack.Push(stacks[fromColumn].Pop());
                 }
                 i++;
             }
@@ -89,7 +90,7 @@ namespace AdventOfCode2022
             {
                 if (tempStack.Count > 0)
                 {
-                    this.stacks[toColumn].Push(tempStack.Pop());
+                    stacks[toColumn].Push(tempStack.Pop());
                 }
                 i++;
             }

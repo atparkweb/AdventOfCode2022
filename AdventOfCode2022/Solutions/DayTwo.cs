@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2022
+﻿using AdventOfCode2022.Library;
+
+namespace AdventOfCode2022.Solutions
 {
     internal class DayTwo : Solution
     {
@@ -40,20 +42,20 @@
 
         override public void Run()
         {
-            var inputMap1 = DayTwo.getInputMapA();
-            var inputMap2 = DayTwo.getInputMapB();
+            var inputMap1 = getInputMapA();
+            var inputMap2 = getInputMapB();
 
-            foreach (var line in this.lines)
+            foreach (var line in lines)
             {
-                this.totalScore1 += inputMap1[line];
-                this.totalScore2 += inputMap2[line];
+                totalScore1 += inputMap1[line];
+                totalScore2 += inputMap2[line];
             }
 
             int[] result = new int[2];
-            result[0] = this.totalScore1;
-            result[1] = this.totalScore2;
+            result[0] = totalScore1;
+            result[1] = totalScore2;
 
-            base.Print(this.dayNumber, result);
+            Print(dayNumber, result);
         }
     }
 }

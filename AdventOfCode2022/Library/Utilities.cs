@@ -1,6 +1,6 @@
 ﻿using AdventOfCode2022.Properties;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Library
 {
     internal class Utilities
     {
@@ -13,7 +13,7 @@ namespace AdventOfCode2022
                 {
                     throw new ArgumentNullException(nameof(file));
                 }
-                return contents.Split(System.Environment.NewLine);
+                return contents.Split(Environment.NewLine);
             }
             catch (ArgumentNullException ex)
             {

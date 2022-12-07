@@ -1,16 +1,4 @@
-﻿using AdventOfCode2022;
+﻿using AdventOfCode2022.Solutions;
 
-var solutionOne = new DayOne();
-solutionOne.Run();
-
-var solutionTwo = new DayTwo();
-solutionTwo.Run();
-
-var solutionThree = new DayThree();
-solutionThree.Run();
-
-var solutionFour = new DayFour();
-solutionFour.Run();
-
-var solutionFive = new DayFive();
-solutionFive.Run();
+var solution = new DaySix();
+solution.Run();

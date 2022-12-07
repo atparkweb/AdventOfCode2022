@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
+using AdventOfCode2022.Library;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Solutions
 {
     internal class DayThree : Solution
     {
@@ -11,10 +12,10 @@ namespace AdventOfCode2022
 
         override public void Run()
         {
-            for (var i = 0; i < this.lines.Length; i++)
+            for (var i = 0; i < lines.Length; i++)
             {
                 Dictionary<char, int> contentsMap = new Dictionary<char, int>();
-                string line = this.lines[i];
+                string line = lines[i];
 
                 for (var j = 0; j < line.Length; j++)
                 {
@@ -33,7 +34,7 @@ namespace AdventOfCode2022
                     {
                         if (contentsMap.ContainsKey(line[j]))
                         {
-                            this.sum += DayThree.getPriority(line[j]);
+                            sum += getPriority(line[j]);
                             break;
                         }
                     }
@@ -42,17 +43,18 @@ namespace AdventOfCode2022
                 // for every group of three lines
                 if (i > 0 && (i + 1) % 3 == 0)
                 {
-                    var chars = this.lines[i].Intersect(this.lines[i - 1]).Intersect(this.lines[i - 2]);
-                    foreach (var c in chars) {
-                        this.groupSum += DayThree.getPriority(c);
+                    var chars = lines[i].Intersect(lines[i - 1]).Intersect(lines[i - 2]);
+                    foreach (var c in chars)
+                    {
+                        groupSum += getPriority(c);
                     }
-                } 
+                }
             }
 
             int[] result = new int[2];
-            result[0] = this.sum;
-            result[1] = this.groupSum;
-            base.Print(this.dayNumber, result);
+            result[0] = sum;
+            result[1] = groupSum;
+            Print(dayNumber, result);
         }
 
         private static int getPriority(char letter)
@@ -60,12 +62,13 @@ namespace AdventOfCode2022
             var uppercaseOffset = 38;
             var lowercaseOffset = 96;
 
-            if ((int)letter - lowercaseOffset < 0)
+            if (letter - lowercaseOffset < 0)
             {
-                return (int)letter - uppercaseOffset;
-            } else
+                return letter - uppercaseOffset;
+            }
+            else
             {
-                return (int)letter - lowercaseOffset;
+                return letter - lowercaseOffset;
             }
         }
     }

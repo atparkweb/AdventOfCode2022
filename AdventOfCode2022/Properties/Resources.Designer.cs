@@ -374,10 +374,16 @@ namespace AdventOfCode2022.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to move 1 from 2 to 1
-        ///move 3 from 1 to 3
-        ///move 2 from 2 to 1
-        ///move 1 from 1 to 2.
+        ///   Looks up a localized string similar to wzsspbssbhshchmmrmprmrfrsfrrjhjphjjtppbfflqfqppdhdbhdhbbjgghgzgsgfsfhfhvvwcwhwwnppsbsggqnnvvtffpssjfjnnltntdtdddptprppjmmqssrlrplllfrrzggbmmlmnmtnnzddfdgfdfsstbstbbzcbbcjcvvfwwwzlzssglsgllnbnmbnmbbgmmppmwwsrrzqqvgqgnqnmmswwrnnbsnnbdbwwqnwqnwwzzqwzqzjqqwbqbccjcwwjlwjwppqfqjffwddrzrjzrjzzzhchjjlqqrggzvvnlvnvjvhvnvjvbbvdvldldbbwddtsscbbhccmbmbppbmmgjggcjjlrrwjwtjwwmffgddwvdvbdbvvhchmhmdmwwbjbjcbbcmbmmslmlslsjjrnrjrjpjcjgcjcjbbwsbsbfssjzsjsggcmcsswgssbbqpbqqdsdqqztzmzpmpbmbvbjjtrjtthwhbhnbhnbnssvpvsppgrrcwrrmqq [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string d6 {
+            get {
+                return ResourceManager.GetString("d6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg.
         /// </summary>
         internal static string test {
             get {

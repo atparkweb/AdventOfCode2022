@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using AdventOfCode2022.Library;
 
-namespace AdventOfCode2022
+namespace AdventOfCode2022.Solutions
 {
     internal class DayFour : Solution
     {
@@ -15,15 +16,15 @@ namespace AdventOfCode2022
             {
                 int[] sections = line.Split('-', ',')
                     .ToList()
-                    .ConvertAll<int>(s => int.Parse(s))
+                    .ConvertAll(s => int.Parse(s))
                     .ToArray();
-                if (this.hasFullOverlap(sections))
+                if (hasFullOverlap(sections))
                 {
                     result1++;
                     result2++;
                 }
 
-                if (!this.hasFullOverlap(sections) && this.hasOverlap(sections))
+                if (!hasFullOverlap(sections) && hasOverlap(sections))
                 {
                     result2++;
                 }
@@ -33,19 +34,19 @@ namespace AdventOfCode2022
             result[0] = result1;
             result[1] = result2;
 
-            base.Print(this.dayNumber, result);
+            Print(dayNumber, result);
         }
 
         bool hasFullOverlap(int[] sections)
         {
-            return (sections[0] >= sections[2] && sections[1] <= sections[3])
-                || (sections[2] >= sections[0] && sections[3] <= sections[1]);
+            return sections[0] >= sections[2] && sections[1] <= sections[3]
+                || sections[2] >= sections[0] && sections[3] <= sections[1];
         }
 
         bool hasOverlap(int[] sections)
         {
-            return (sections[1] >= sections[2] && sections[1] <= sections[3])
-                || (sections[3] >= sections[0] && sections[3] <= sections[1]);
+            return sections[1] >= sections[2] && sections[1] <= sections[3]
+                || sections[3] >= sections[0] && sections[3] <= sections[1];
         }
     }
 }
