@@ -383,6 +383,56 @@ namespace AdventOfCode2022.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to $ cd /
+        ///$ ls
+        ///dir gqcclj
+        ///dir lmtpm
+        ///dir nhqwt
+        ///dir qcq
+        ///dir vwqwlqrt
+        ///$ cd gqcclj
+        ///$ ls
+        ///62425 dqp.gjm
+        ///174181 hrtw.qsd
+        ///273712 pflp.mdw
+        ///169404 zlthnlhf.mtn
+        ///180878 zprprf
+        ///$ cd ..
+        ///$ cd lmtpm
+        ///$ ls
+        ///dir clffsvcw
+        ///163587 cvcl.jqh
+        ///dir dcqnblb
+        ///dir dtpwln
+        ///dir fvt
+        ///dir hrcrw
+        ///dir jdqzmqn
+        ///236754 nrdmlj
+        ///205959 pflp.mdw
+        ///dir qcq
+        ///dir rsn
+        ///129926 vdgcqdn.sqd
+        ///dir zprprf
+        ///$ cd clffsvcw
+        ///$ ls
+        ///6997 dcqnblb.wbh
+        ///145711 dqp
+        ///159225 pflp.mdw
+        ///$ cd ..
+        ///$ cd dcqnblb
+        ///$ ls
+        ///dir dcqnblb
+        ///dir gfn
+        ///dir lpswsp
+        ///dir lvt        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string d7 {
+            get {
+                return ResourceManager.GetString("d7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg.
         /// </summary>
         internal static string test {
